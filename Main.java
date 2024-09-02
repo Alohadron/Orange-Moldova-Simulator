@@ -116,7 +116,6 @@ public class Main {
        }
    }
 
-
     public static void main(String[] args) {
         String zero = color.BLUE + "\"0\"" + color.GREEN;
         String one = color.BLUE + "\"1\"" + color.GREEN;
@@ -140,12 +139,6 @@ public class Main {
         if (Objects.equals(alOpt, "0")) {
             operatorMenu();
         }
-        System.out.println("Banzai");
-        System.out.println("Banzai");
-        System.out.println("Banzai");
-        System.out.println("Banzai");
-        System.out.println("Banzai");
-        System.out.println("Banzai");
 
     }
 }
