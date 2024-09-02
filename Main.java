@@ -140,6 +140,13 @@ public class Main {
         if (Objects.equals(alOpt, "0")) {
             operatorMenu();
         }
+        System.out.println("Banzai");
+        System.out.println("Banzai");
+        System.out.println("Banzai");
+        System.out.println("Banzai");
+        System.out.println("Banzai");
+        System.out.println("Banzai");
+
     }
 }
 
