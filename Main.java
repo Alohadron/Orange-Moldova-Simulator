@@ -32,55 +32,82 @@ public class Main {
     //meniul operatorului
     public static void operatorMenu() {
             space(15);
-            System.out.println(color.GREEN + "Welcome to Operator's Main Menu" + color.RESET);
-            System.out.println(color.GREEN + "Here you will be able to freely manipulate your client's data." + color.RESET);
-            System.out.println(color.GREEN + "\nBelow are the possibilities you have: " + color.RESET);
-            System.out.println(color.BLUE + "1 \"Create\" a client" + color.RESET);
-            System.out.println(color.BLUE + "2 \"Remove\" a client" + color.RESET);
-            System.out.println(color.BLUE + "3 \"Edit\" client's data" + color.RESET);
-            System.out.println(color.BLUE + "4 \"Choose\" a client" + color.RESET);
-            System.out.println(color.BLUE + "5 \"Show the list\" of clients" + color.RESET);
+            System.out.println(color.GREEN + "Welcome to Operator's Main Menu" +
+             "\nHere you will be able to freely manipulate your client's data." +
+             "\nBelow are the possibilities you have: " + color.RESET);
+            System.out.println(color.BLUE + "1 \"Create\" a client"
+             + "\n2 \"Remove\" a client"
+             + "\n3 \"Edit\" client's data"
+             + "\n4 \"Choose\" a client"
+             + "\n5 \"Show the list\" of clients" + color.RESET);
             System.out.println("\n0 - Exit program");
             System.out.print(color.GREEN + "\nChoose an option: " + color.RESET);
             String inp = input.nextLine();
 
-            if (Objects.equals(inp, "1")) {
-                space(2);
-                Client.createClient();
+            switch (inp) {
+                case "1":
+                    space(2);
+                    Client.createClient();
+                    break;
+                case "2":
+                    System.out.print(color.BLUE + "Type client's ID to remove them: " + color.RESET);
+                    String removeID = input.nextLine();
+                    MainMenu.removeClient(removeID);
+                    break;
+                case "3":
+                    space(2);
+                    MainMenu. editClient();
+                    break;
+                case "4":
+                    space(2);
+                    System.out.print(color.BLUE + "Type client's ID: " + color.RESET);
+                    String findID = input.nextLine();
+                    MainMenu.findClient(findID);
+                    utilizatorMenu(findID);
+                    MainMenu.foundClientData.clear();
+                    break;
+                case "5":
+                    space(2);
+                    MainMenu.allClients();
+                    break;
             }
-            if (Objects.equals(inp, "2")) {
-                space(2);
-                System.out.print(color.BLUE + "Type client's ID to remove them: " + color.RESET);
-                String removeID = input.nextLine();
-                MainMenu.removeClient(removeID);
-            }
-            if (Objects.equals(inp, "3")) {
-                space(2);
-                MainMenu. editClient();
-            }
-            if (Objects.equals(inp, "4")) {
-                space(2);
-                System.out.print(color.BLUE + "Type client's ID: " + color.RESET);
-                String findID = input.nextLine();
-
-                MainMenu.findClient(findID);
-                utilizatorMenu(findID);
-
-                MainMenu.foundClientData.clear();
-            }
-            if (Objects.equals(inp, "5")) {
-                space(2);
-                MainMenu.allClients();
-            }
+//            if (Objects.equals(inp, "1")) {
+//                space(2);
+//                Client.createClient();
+//            }
+//            if (Objects.equals(inp, "2")) {
+//                space(2);
+//                System.out.print(color.BLUE + "Type client's ID to remove them: " + color.RESET);
+//                String removeID = input.nextLine();
+//                MainMenu.removeClient(removeID);
+//            }
+//            if (Objects.equals(inp, "3")) {
+//                space(2);
+//                MainMenu. editClient();
+//            }
+//            if (Objects.equals(inp, "4")) {
+//                space(2);
+//                System.out.print(color.BLUE + "Type client's ID: " + color.RESET);
+//                String findID = input.nextLine();
+//
+//                MainMenu.findClient(findID);
+//                utilizatorMenu(findID);
+//
+//                MainMenu.foundClientData.clear();
+//            }
+//            if (Objects.equals(inp, "5")) {
+//                space(2);
+//                MainMenu.allClients();
+//            }
         }
    //meniul utilizatorului
    public static void utilizatorMenu(String ID) {
        MainMenu.displayClientData(ID);
 
-       System.out.println("Choose an action \n");
-       System.out.println("133 - Account status");
-       System.out.println("100 - Orange options");
-       System.out.println("### - OperatorMenu\n");
+       System.out.println("Choose an action \n" +
+       "\n133 - Account status" +
+       "\n100 - Orange options" +
+       "\n### - OperatorMenu\n");
 
        Scanner inp = new Scanner(System.in);
        String str = inp.nextLine();
@@ -89,10 +116,10 @@ public class Main {
        }
        if (Objects.equals(str, "100")) {
            Main.space(2);
-           System.out.println("Choose:");
-           System.out.println("1 Mobile data options");
-           System.out.println("2 \"Voce\" options");
-           System.out.println("3 Change the subscription\n");
+           System.out.println("Choose:" +
+           "\n1 Mobile data options" +
+           "\n2 \"Voce\" options" +
+           "\n3 Change the subscription\n");
 
            System.out.println("0 - Exit program");
            System.out.println("4 - Back\n");
@@ -139,7 +166,7 @@ public class Main {
         if (Objects.equals(alOpt, "0")) {
             operatorMenu();
         }
-        System.out.println("Banzai");
+
     }
 }
 

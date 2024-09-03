@@ -11,8 +11,8 @@ public class MainMenu {
     static String parametru;
     static String ID;
 
-    static ArrayList<String> separatedList = new ArrayList<String>();//lista unde se separa key/value atunci cand editezi clietn data
-    static ArrayList<String> foundClientData = new ArrayList<String>();//lista cu fiecare key:value a clientului aparte
+    static ArrayList<String> separatedList = new ArrayList<>();//lista unde se separa key/value atunci cand editezi clietn data
+    static ArrayList<String> foundClientData = new ArrayList<>();//lista cu fiecare key:value a clientului aparte
 
     //Display toti clientii
     public static void allClients() {
@@ -70,38 +70,72 @@ public class MainMenu {
                     Scanner banana = new Scanner(System.in);
                     String newNume = banana.nextLine();
 
-                    //Balanata numerica
-                    if (Objects.equals(parametru, "Balanta")) {
-                        try {Double num = Double.parseDouble(newNume);}
+                    switch (parametru) {
+                        //Balanta numerica
+                        case "Balanta":
+                            try {Double num = Double.parseDouble(newNume);}
                         catch (NumberFormatException e) {
                             System.out.println(color.RED + "\nBalanta trebuie sa fie numerica" + color.RESET);
                             System.exit(0);
                         }
-                    }
+                            break;
 
-                    //Data de facturare 1-31
-                    if (Objects.equals(parametru, "Data de Facturare")) {
-                        try {
+                        //data de facturara  1-31
+                        case "Data de Facturare":
+                            try {
                             int num = Integer.parseInt(newNume);
                         }
                         catch (NumberFormatException e) {
                             System.out.println(color.RED + "\nData trebuie sa fie numerica" + color.RESET);
                         }
                         int date = Integer.parseInt(newNume);
-                        if (1 >= date || date >= 31) System.out.println(color.RED + "\nLuna are 31 zile" + color.RESET);
-                    }
+                        if (1 >= date || date >= 31) System.out.println(color.RED + "\nMonth has 31 days at max" + color.RESET);
+                        break;
 
-                    //date format only
-                    if (Objects.equals(parametru, "Data Nasterii")) {
+                        //date format only
+                        case "Data Nasterii":
                         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                         try {
-                            Date date = sdf.parse(newNume);
-                            System.out.println("Input date: " + sdf.format(date));
+                            Date date1 = sdf.parse(newNume);
+                            System.out.println("Input date: " + sdf.format(date1));
                         } catch (ParseException e) {
                             System.out.println(color.RED + "\nInvalid date format" + color.RESET);
                             System.exit(0);
                         }
+                        break;
                     }
+//                    //Balanata numerica
+//                    if (Objects.equals(parametru, "Balanta")) {
+//                        try {Double num = Double.parseDouble(newNume);}
+//                        catch (NumberFormatException e) {
+//                            System.out.println(color.RED + "\nBalanta trebuie sa fie numerica" + color.RESET);
+//                            System.exit(0);
+//                        }
+//                    }
+//
+//                    //Data de facturare 1-31
+//                    if (Objects.equals(parametru, "Data de Facturare")) {
+//                        try {
+//                            int num = Integer.parseInt(newNume);
+//                        }
+//                        catch (NumberFormatException e) {
+//                            System.out.println(color.RED + "\nData trebuie sa fie numerica" + color.RESET);
+//                        }
+//                        int date = Integer.parseInt(newNume);
+//                        if (1 >= date || date >= 31) System.out.println(color.RED + "\nLuna are 31 zile" + color.RESET);
+//                    }
+//
+//                    //date format only
+//                    if (Objects.equals(parametru, "Data Nasterii")) {
+//                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//                        try {
+//                            Date date = sdf.parse(newNume);
+//                            System.out.println("Input date: " + sdf.format(date));
+//                        } catch (ParseException e) {
+//                            System.out.println(color.RED + "\nInvalid date format" + color.RESET);
+//                            System.exit(0);
+//                        }
+//                    }
 
                     if (foundClientData.contains(preStr)) {
                         String newStr = parametru + ": " + newNume;
@@ -111,7 +145,7 @@ public class MainMenu {
                     }
                     separatedList.clear();
                 }
-            else continue;
+
         }
     }
 

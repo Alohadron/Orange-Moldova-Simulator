@@ -40,6 +40,10 @@ public class utilMenu {
 
     //metoda care ajuta metoda-mama optiuni
     public static void modificareOptiune(String ID, int pret, String Optiunea, String MINGB, int cantitatea) {
+        int x;
+        if (Objects.equals(MINGB, "MIN")) x = 2;
+        else x = 1;
+
         String preOptiune = MainMenu.foundClientData.get(6);
         String preBalance = MainMenu.foundClientData.get(4).replace("Balanta: ", "");
         String newBalance = String.valueOf(Double.parseDouble(preBalance) - pret);
@@ -54,15 +58,17 @@ public class utilMenu {
             while ((line = br.readLine()) != null) {
                 if (line.contains(ID)) {
                     String[] list = line.split(", ");
-                    String preGB = list[1];
-                    String newLine = line.replace(preGB, MINGB + ": " + MINMB);
+                    String preGBMIN = list[x];
+                    String newLine = line.replace(preGBMIN, MINGB + ": " + MINMB);
                     FileHelper.replaceLine("StareaContului.txt", line, newLine);
+                    System.out.println(color.GREEN + "Option successfully added" + color.RESET);
                 }
             }
         } catch (IOException e) {
             // handle exception...
             System.out.println("No!");
         }
+
     }
 
     //Metodata care afiseaza si modifica sectia cu optiuni
@@ -71,60 +77,52 @@ public class utilMenu {
 
         //optiuni internet mobil
         if (Objects.equals(optiunea, "Internet")) {
-            System.out.println("Choose:");
-            System.out.println("1 - 1 GB monthly");
-            System.out.println("2 - 5 GB monthly");
-            System.out.println("3 - 10 GB monthly\n");
-            System.out.println("4 - Back");
+            String alegeGB = """
+             Choose:
+             1 - 1 GB monthly
+             2 - 5 GB monthly
+             3 - 10 GB monthly\n
+             4 - Back""";
+            System.out.println(alegeGB);
             String str = Main.input.nextLine();
 
-            if (Objects.equals(str, "1")) {
-                modificareOptiune(ID, 30, "Optiuni: 1 GB lunar", "GB", 1);
-                System.out.println("Option successfully added");
-            }
-            if (Objects.equals(str, "2")) {
-                modificareOptiune(ID, 60, "Optiuni: 5 GB lunar", "GB", 5);
-                System.out.println("Option successfully added");
-            }
-            if (Objects.equals(str, "3")) {
-                modificareOptiune(ID, 100, "Optiuni: 10 GB lunar", "GB", 10);
-                System.out.println("Option successfully added");
-            }
-            if (Objects.equals(str, "4")) {
-                Main.utilizatorMenu(ID);
-            }
-            if (!Objects.equals(str, "1") && !Objects.equals(str, "2") && !Objects.equals(str, "3")) {
-                System.out.println(color.YELLOW + "\nIncorrect option!" + color.RESET);
-                Main.utilizatorMenu(ID);
+            switch (str) {
+                case "1": modificareOptiune(ID, 30, "Optiuni: 1 GB lunar", "GB", 1);
+                break;
+                case "2": modificareOptiune(ID, 60, "Optiuni: 5 GB lunar", "GB", 5);
+                break;
+                case "3": modificareOptiune(ID, 100, "Optiuni: 10 GB lunar", "GB", 10);
+                break;
+                case "4": Main.utilizatorMenu(ID);
+                break;
+                default:
+                    System.out.println(color.YELLOW + "\nIncorrect option!" + color.RESET);
+                    Main.utilizatorMenu(ID);
             }
         }
 
         //optiuni voce
         if (Objects.equals(optiunea, "Voce")) {
-            System.out.println("Choose");
-            System.out.println("1 - 50 min monthly ");
-            System.out.println("2 - 100 min monthly ");
-            System.out.println("3 - 200 min monthly \n");
-            System.out.println("4 - Back");
+            String alegeMin = """
+                    Choose
+                    1 - 50 min monthly
+                    2 - 100 min monthly
+                    3 - 200 min monthly
+                    4 - Back""";
+            System.out.println(alegeMin);
             String str = Main.input.nextLine();
 
-            if (Objects.equals(str, "1")) {
-                modificareOptiune(ID, 30, "Optiuni: 50 Min lunar", "MIN", 50);
+            switch (str) {
+                case "1": modificareOptiune(ID, 30, "Optiuni: 50 Min lunar", "MIN", 50);
+                break;
+                case "2": modificareOptiune(ID, 60, "Optiuni: 100 Min lunar", "MIN", 100);
+                break;
+                case "3": modificareOptiune(ID, 100, "Optiuni: 200 Min lunar", "MIN", 200);
+                break;
+                case "4": Main.utilizatorMenu(ID);
+                default: System.out.println(color.YELLOW + "\nIncorrect option!" + color.RESET);
             }
-            if (Objects.equals(str, "2")) {
-                modificareOptiune(ID, 60, "Optiuni: 100 Min lunar", "MIN", 100);
-            }
-            if (Objects.equals(str, "3")) {
-                modificareOptiune(ID, 100, "Optiuni: 200 Min lunar", "MIN", 200);
-            }
-            if (Objects.equals(str, "4")) {
-                Main.utilizatorMenu(ID);
-            }
-            if (!Objects.equals(str, "1") && !Objects.equals(str, "2") && !Objects.equals(str, "3")) {
-                System.out.println(color.YELLOW + "\nIncorrect option!" + color.RESET);
-                Main.utilizatorMenu(ID);
-            }
-            MainMenu.foundClientData.clear();
         }
+        MainMenu.foundClientData.clear();
     }
 }
