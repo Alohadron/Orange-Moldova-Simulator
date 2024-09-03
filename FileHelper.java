@@ -7,7 +7,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -74,26 +73,49 @@ public class FileHelper {
             myWriter.append("ID: ").append(Client.pID).append(", ");
             MainMenu.findClient(Client.pID);
 
-            if (Objects.equals(MainMenu.foundClientData.get(5), "Abonament: Start 100")) {
-                myWriter.append("GB: ").append(String.valueOf(Abonament.Start100.gb) + ", ");
-                myWriter.append("MIN: " + String.valueOf(Abonament.Start100.min) + ("\n"));
+            switch (MainMenu.foundClientData.get(5)){
+                case "Abonament: Start 100":
+                    myWriter.append("GB: ").append(String.valueOf(Abonament.Start100.gb) + ", ");
+                    myWriter.append("MIN: " + String.valueOf(Abonament.Start100.min) + ("\n"));
+                    break;
+                case "Abonament: Max 140":
+                    myWriter.append("GB: ").append(String.valueOf(Abonament.Max140.gb) + ", ");
+                    myWriter.append("MIN: " + String.valueOf(Abonament.Max140.min) + ("\n"));
+                    break;
+                case "Abonament: Max 175":
+                    myWriter.append("GB: ").append(String.valueOf(Abonament.Max175.gb) + ", ");
+                    myWriter.append("MIN: " + String.valueOf(Abonament.Max175.min) + ("\n"));
+                    break;
+                case "Abonament: Max 200":
+                    myWriter.append("GB: ").append(String.valueOf(Abonament.Max200.gb) + ", ");
+                    myWriter.append("MIN: " + String.valueOf(Abonament.Max200.min) + ("\n"));
+                    break;
+                case "Abonament: Max 290":
+                    myWriter.append("GB: ").append(String.valueOf(Abonament.Max290.gb) + ", ");
+                    myWriter.append("MIN: " + String.valueOf(Abonament.Max290.min) + ("\n"));
+                    break;
             }
-            if (Objects.equals(MainMenu.foundClientData.get(5), "Abonament: Max 140")) {
-                myWriter.append("GB: ").append(String.valueOf(Abonament.Max140.gb) + ", ");
-                myWriter.append("MIN: " + String.valueOf(Abonament.Max140.min) + ("\n"));
-            }
-            if (Objects.equals(MainMenu.foundClientData.get(5), "Abonament: Max 175")) {
-                myWriter.append("GB: ").append(String.valueOf(Abonament.Max175.gb) + ", ");
-                myWriter.append("MIN: " + String.valueOf(Abonament.Max175.min) + ("\n"));
-            }
-            if (Objects.equals(MainMenu.foundClientData.get(5), "Abonament: Max 200")) {
-                myWriter.append("GB: ").append(String.valueOf(Abonament.Max200.gb) + ", ");
-                myWriter.append("MIN: " + String.valueOf(Abonament.Max200.min) + ("\n"));
-            }
-            if (Objects.equals(MainMenu.foundClientData.get(5), "Abonament: Max 290")) {
-                myWriter.append("GB: ").append(String.valueOf(Abonament.Max290.gb) + ", ");
-                myWriter.append("MIN: " + String.valueOf(Abonament.Max290.min) + ("\n"));
-            }
+
+//            if (Objects.equals(MainMenu.foundClientData.get(5), "Abonament: Start 100")) {
+//                myWriter.append("GB: ").append(String.valueOf(Abonament.Start100.gb) + ", ");
+//                myWriter.append("MIN: " + String.valueOf(Abonament.Start100.min) + ("\n"));
+//            }
+//            if (Objects.equals(MainMenu.foundClientData.get(5), "Abonament: Max 140")) {
+//                myWriter.append("GB: ").append(String.valueOf(Abonament.Max140.gb) + ", ");
+//                myWriter.append("MIN: " + String.valueOf(Abonament.Max140.min) + ("\n"));
+//            }
+//            if (Objects.equals(MainMenu.foundClientData.get(5), "Abonament: Max 175")) {
+//                myWriter.append("GB: ").append(String.valueOf(Abonament.Max175.gb) + ", ");
+//                myWriter.append("MIN: " + String.valueOf(Abonament.Max175.min) + ("\n"));
+//            }
+//            if (Objects.equals(MainMenu.foundClientData.get(5), "Abonament: Max 200")) {
+//                myWriter.append("GB: ").append(String.valueOf(Abonament.Max200.gb) + ", ");
+//                myWriter.append("MIN: " + String.valueOf(Abonament.Max200.min) + ("\n"));
+//            }
+//            if (Objects.equals(MainMenu.foundClientData.get(5), "Abonament: Max 290")) {
+//                myWriter.append("GB: ").append(String.valueOf(Abonament.Max290.gb) + ", ");
+//                myWriter.append("MIN: " + String.valueOf(Abonament.Max290.min) + ("\n"));
+//            }
 
 
             myWriter.close();

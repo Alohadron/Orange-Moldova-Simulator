@@ -74,12 +74,12 @@ public class Abonament{
     //metoda care ajuta utilizatorul sa aleaga abonamentul
     public static void alegeAb() {
         System.out.println(color.GREEN + "\nList of subscriptions:" + color.RESET);
-        System.out.println("Start 100");
-        System.out.println("Max 140");
-        System.out.println("Max 175");
-        System.out.println("Max 200");
-        System.out.println("Max 290");
-        System.out.print("Choose a subscription: ");
+        System.out.println("\nStart 100" +
+        "\nMax 140" +
+        "\nMax 175" +
+        "\nMax 200" +
+        "\nMax 290" +
+        "\nChoose a subscription: ");
         abY = Main.input.nextLine();
         if (!Objects.equals(abY, "Start 100") && !Objects.equals(abY, "Max 140") && !Objects.equals(abY, "Max 175") && !Objects.equals(abY, "Max 200") && !Objects.equals(abY, "Max 290")){
             System.out.println(Main.color.RED + "\nSuch subscription does not exist!" + Main.color.RESET);
@@ -109,26 +109,48 @@ public class Abonament{
             String line;
             while ((line = br.readLine()) != null) {
                 if (line.contains(ID)) {
-                    if (Objects.equals(abAles, "Start 100")) {
-                        String newStare = "ID: " + ID + ", GB: " + Start100.gb + ", MIN: " + Start100.min;
-                        FileHelper.replaceLine("StareaContului.txt", line, newStare);
+                    String newStare;
+                    switch (abAles) {
+                        case "Start 100":
+                            newStare = "ID: " + ID + ", GB: " + Start100.gb + ", MIN: " + Start100.min;
+                            FileHelper.replaceLine("StareaContului.txt", line, newStare);
+                            break;
+                        case "Max 140":
+                            newStare = "ID: " + ID + ", GB: " + Max140.gb + ", MIN: " + Max140.min;
+                            FileHelper.replaceLine("StareaContului.txt", line, newStare);
+                            break;
+                        case "Max 175":
+                            newStare = "ID: " + ID + ", GB: " + Max175.gb + ", MIN: " + Max175.min;
+                            FileHelper.replaceLine("StareaContului.txt", line, newStare);
+                            break;
+                        case "Max 200":
+                            newStare = "ID: " + ID + ", GB: " + Max200.gb + ", MIN: " + Max200.min;
+                            FileHelper.replaceLine("StareaContului.txt", line, newStare);
+                            break;
+                        case "Max 290":
+                            newStare = "ID: " + ID + ", GB: " + Max290.gb + ", MIN: " + Max290.min;
+                            FileHelper.replaceLine("StareaContului.txt", line, newStare);
                     }
-                    if (Objects.equals(abAles, "Max 140")) {
-                        String newStare = "ID: " + ID + ", GB: " + Max140.gb + ", MIN: " + Max140.min;
-                        FileHelper.replaceLine("StareaContului.txt", line, newStare);
-                    }
-                    if (Objects.equals(abAles, "Max 175")) {
-                        String newStare = "ID: " + ID + ", GB: " + Max175.gb + ", MIN: " + Max175.min;
-                        FileHelper.replaceLine("StareaContului.txt", line, newStare);
-                    }
-                    if (Objects.equals(abAles, "Max 200")) {
-                        String newStare = "ID: " + ID + ", GB: " + Max200.gb + ", MIN: " + Max200.min;
-                        FileHelper.replaceLine("StareaContului.txt", line, newStare);
-                    }
-                    if (Objects.equals(abAles, "Max 290")) {
-                        String newStare = "ID: " + ID + ", GB: " + Max290.gb + ", MIN: " + Max290.min;
-                        FileHelper.replaceLine("StareaContului.txt", line, newStare);
-                    }
+//                    if (Objects.equals(abAles, "Start 100")) {
+//                        String newStare = "ID: " + ID + ", GB: " + Start100.gb + ", MIN: " + Start100.min;
+//                        FileHelper.replaceLine("StareaContului.txt", line, newStare);
+//                    }
+//                    if (Objects.equals(abAles, "Max 140")) {
+//                        String newStare = "ID: " + ID + ", GB: " + Max140.gb + ", MIN: " + Max140.min;
+//                        FileHelper.replaceLine("StareaContului.txt", line, newStare);
+//                    }
+//                    if (Objects.equals(abAles, "Max 175")) {
+//                        String newStare = "ID: " + ID + ", GB: " + Max175.gb + ", MIN: " + Max175.min;
+//                        FileHelper.replaceLine("StareaContului.txt", line, newStare);
+//                    }
+//                    if (Objects.equals(abAles, "Max 200")) {
+//                        String newStare = "ID: " + ID + ", GB: " + Max200.gb + ", MIN: " + Max200.min;
+//                        FileHelper.replaceLine("StareaContului.txt", line, newStare);
+//                    }
+//                    if (Objects.equals(abAles, "Max 290")) {
+//                        String newStare = "ID: " + ID + ", GB: " + Max290.gb + ", MIN: " + Max290.min;
+//                        FileHelper.replaceLine("StareaContului.txt", line, newStare);
+//                    }
                 }
             }
         } catch (IOException e) {
