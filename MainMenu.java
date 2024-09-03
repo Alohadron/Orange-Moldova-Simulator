@@ -89,7 +89,10 @@ public class MainMenu {
                             System.out.println(color.RED + "\nData trebuie sa fie numerica" + color.RESET);
                         }
                         int date = Integer.parseInt(newNume);
-                        if (1 >= date || date >= 31) System.out.println(color.RED + "\nMonth has 31 days at max" + color.RESET);
+                        if (1 >= date || date >= 31) {
+                            System.out.println(color.RED + "\nMonth has 31 days at max" + color.RESET);
+                            System.exit(0);
+                        }
                         break;
 
                         //date format only

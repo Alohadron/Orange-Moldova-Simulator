@@ -1,11 +1,11 @@
-Nume: John, Prenume: Doe, Data Nasterii: 12/12/1988, ID: 64783143, Balanta: 0.0, Abonament: Max 175, Optiuni: None, Data de Facturare: 1
-Nume: Isla, Prenume: Greer, Data Nasterii: 27/04/1999, ID: 58869328, Balanta: 0.0, Abonament: Max 140, Optiuni: None, Data de Facturare: 1
-Nume: Haylee , Prenume: Baldwin, Data Nasterii: 15/06/1984, ID: 96244459, Balanta: 0.0, Abonament: Max 200, Optiuni: None, Data de Facturare: 1
-Nume: Persephone , Prenume: Stephenson, Data Nasterii: 15/02/2000, ID: 14450191, Balanta: 0.0, Abonament: Start 100, Optiuni: None, Data de Facturare: 2
-Nume: Joe , Prenume: Schmidt, Data Nasterii: 28/08/1989, ID: 98415128, Balanta: 0.0, Abonament: Max 290, Optiuni: None, Data de Facturare: 2
-Nume: Kimberly, Prenume: Lang, Data Nasterii: 13/06/2002, ID: 39380975, Balanta: 0.0, Abonament: Max 175, Optiuni: None, Data de Facturare: 2
-Nume: Wells , Prenume: Faulkner, Data Nasterii: 22/09/1991, ID: 12199949, Balanta: 0.0, Abonament: Max 140, Optiuni: None, Data de Facturare: 2
+Nume: John, Prenume: Doe, Data Nasterii: 12/12/1988, ID: 64783143, Balanta: 0.0, Abonament: Max 175, Optiuni: None, Data de Facturare: 3
+Nume: Isla, Prenume: Greer, Data Nasterii: 27/04/1999, ID: 58869328, Balanta: 0.0, Abonament: Max 140, Optiuni: None, Data de Facturare: 15
+Nume: Haylee , Prenume: Baldwin, Data Nasterii: 15/06/1984, ID: 96244459, Balanta: 0.0, Abonament: Max 200, Optiuni: None, Data de Facturare: 11
+Nume: Persephone , Prenume: Stephenson, Data Nasterii: 15/02/2000, ID: 14450191, Balanta: 0.0, Abonament: Start 100, Optiuni: None, Data de Facturare: 22
+Nume: Joe , Prenume: Schmidt, Data Nasterii: 28/08/1989, ID: 98415128, Balanta: 0.0, Abonament: Max 290, Optiuni: None, Data de Facturare: 12
+Nume: Kimberly, Prenume: Lang, Data Nasterii: 13/06/2002, ID: 39380975, Balanta: 0.0, Abonament: Max 175, Optiuni: None, Data de Facturare: 18
+Nume: Wells , Prenume: Faulkner, Data Nasterii: 22/09/1991, ID: 12199949, Balanta: 0.0, Abonament: Max 140, Optiuni: None, Data de Facturare: 8
 Nume: Ansley , Prenume: Fitzgerald, Data Nasterii: 08/02/2001, ID: 92072283, Balanta: 0.0, Abonament: Max 140, Optiuni: None, Data de Facturare: 2
-Nume: Peyton , Prenume: Hobbs, Data Nasterii: 07/07/1997, ID: 97194360, Balanta: 0.0, Abonament: Max 200, Optiuni: None, Data de Facturare: 2
-Nume: Lacey , Prenume: Kerr, Data Nasterii: 04/11/2001, ID: 96973017, Balanta: 0.0, Abonament: Start 100, Optiuni: None, Data de Facturare: 2
-Nume: Louie , Prenume: Rhodes, Data Nasterii: 16/07/2003, ID: 84982411, Balanta: 0.0, Abonament: Max 290, Optiuni: None, Data de Facturare: 45
+Nume: Peyton , Prenume: Hobbs, Data Nasterii: 07/07/1997, ID: 97194360, Balanta: 0.0, Abonament: Max 200, Optiuni: None, Data de Facturare: 13
+Nume: Lacey , Prenume: Kerr, Data Nasterii: 04/11/2001, ID: 96973017, Balanta: 0.0, Abonament: Start 100, Optiuni: None, Data de Facturare: 24
+Nume: Louie , Prenume: Rhodes, Data Nasterii: 16/07/2003, ID: 84982411, Balanta: 0.0, Abonament: Max 290, Optiuni: None, Data de Facturare: 4

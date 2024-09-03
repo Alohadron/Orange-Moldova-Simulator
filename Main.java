@@ -109,38 +109,70 @@ public class Main {
        "\n100 - Orange options" +
        "\n### - OperatorMenu\n");
 
-       Scanner inp = new Scanner(System.in);
-       String str = inp.nextLine();
-       if (Objects.equals(str, "133")) {
-           utilMenu.stareaContului(ID);
+       String str = input.nextLine();
+       switch (str) {
+           case "133":
+               utilMenu.stareaContului(ID);
+               break;
+           case "100":
+               Main.space(2);
+               System.out.println("Choose:" +
+                       "\n1 Mobile data options" +
+                       "\n2 \"Voce\" options" +
+                       "\n3 Change the subscription\n");
+
+               System.out.println("0 - Exit program");
+               System.out.println("4 - Back\n");
+
+               String opt = input.nextLine();
+
+               if (Objects.equals(opt, "1")) utilMenu.optiuni(ID, "Internet");
+               if (Objects.equals(opt, "2")) utilMenu.optiuni(ID, "Voce");
+               if (Objects.equals(opt, "3")) Abonament.schimbDeAbonament(ID);
+
+               if(Objects.equals(opt, "0")) System.exit(0);
+               if (Objects.equals(opt, "4")) Main.utilizatorMenu(ID);
+               break;
+           case "###":
+               operatorMenu();
+               break;
+           default:
+               space(2);
+               System.out.println(color.YELLOW + "Incorrect Action!" + color.RESET);
+               System.out.println();
+               utilizatorMenu(ID);
        }
-       if (Objects.equals(str, "100")) {
-           Main.space(2);
-           System.out.println("Choose:" +
-           "\n1 Mobile data options" +
-           "\n2 \"Voce\" options" +
-           "\n3 Change the subscription\n");
 
-           System.out.println("0 - Exit program");
-           System.out.println("4 - Back\n");
-
-           String opt = input.nextLine();
-
-           if (Objects.equals(opt, "1")) utilMenu.optiuni(ID, "Internet");
-           if (Objects.equals(opt, "2")) utilMenu.optiuni(ID, "Voce");
-           if (Objects.equals(opt, "3")) Abonament.schimbDeAbonament(ID);
-
-           if(Objects.equals(opt, "0")) System.exit(0);
-           if (Objects.equals(opt, "4")) Main.utilizatorMenu(ID);
-
-       }
-       if (Objects.equals(str, "###")) operatorMenu();
-       if (!Objects.equals(str, "133") && !Objects.equals(str, "100") && !Objects.equals(str, "###")) {
-           space(2);
-           System.out.println(color.YELLOW + "Incorrect Action!" + color.RESET);
-           System.out.println();
-           utilizatorMenu(ID);
-       }
+//       if (Objects.equals(str, "133")) {
+//           utilMenu.stareaContului(ID);
+//       }
+//       if (Objects.equals(str, "100")) {
+//           Main.space(2);
+//           System.out.println("Choose:" +
+//           "\n1 Mobile data options" +
+//           "\n2 \"Voce\" options" +
+//           "\n3 Change the subscription\n");
+//
+//           System.out.println("0 - Exit program");
+//           System.out.println("4 - Back\n");
+//
+//           String opt = input.nextLine();
+//
+//           if (Objects.equals(opt, "1")) utilMenu.optiuni(ID, "Internet");
+//           if (Objects.equals(opt, "2")) utilMenu.optiuni(ID, "Voce");
+//           if (Objects.equals(opt, "3")) Abonament.schimbDeAbonament(ID);
+//
+//           if(Objects.equals(opt, "0")) System.exit(0);
+//           if (Objects.equals(opt, "4")) Main.utilizatorMenu(ID);
+//
+//       }
+//       if (Objects.equals(str, "###")) operatorMenu();
+//       if (!Objects.equals(str, "133") && !Objects.equals(str, "100") && !Objects.equals(str, "###")) {
+//           space(2);
+//           System.out.println(color.YELLOW + "Incorrect Action!" + color.RESET);
+//           System.out.println();
+//           utilizatorMenu(ID);
+//       }
    }
 
     public static void main(String[] args) {
