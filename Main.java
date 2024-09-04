@@ -105,18 +105,12 @@ public class Main {
                String opt = input.nextLine();
 
                switch (opt) {
-                   case "1": utilMenu.optiuni(ID, "Internet");
-                       break;
-                   case "2": utilMenu.optiuni(ID, "Voce");
-                       break;
-                   case "3": Abonament.schimbDeAbonament(ID);
-                       break;
-                   case "0": System.exit(0);
-                       break;
-                   case "4": Main.utilizatorMenu(ID);
-                       break;
+                   case "1" -> utilMenu.optiuni(ID, "Internet");
+                   case "2" -> utilMenu.optiuni(ID, "Voce");
+                   case "3" -> Abonament.schimbDeAbonament(ID);
+                   case "0" -> System.exit(0);
+                   case "4" -> Main.utilizatorMenu(ID);
                }
-               break;
            case "###":
                operatorMenu();
                break;

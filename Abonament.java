@@ -2,6 +2,8 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 //Abonament
@@ -83,7 +85,9 @@ public class Abonament {
                 Choose a subscription: """;
         System.out.println(text);
         abY = Main.input.nextLine();
-        if (!Objects.equals(abY, "Start 100") && !Objects.equals(abY, "Max 140") && !Objects.equals(abY, "Max 175") && !Objects.equals(abY, "Max 200") && !Objects.equals(abY, "Max 290")) {
+
+        ArrayList<String> aboList =  new ArrayList<>(List.of("Start 100", "Max 140", "Max 175", "Max 200", "Max 290"));
+        if (!aboList.contains(abY)) {
             System.out.println(Main.color.RED + "\nSuch subscription does not exist!" + Main.color.RESET);
             alegeAb();
         }
@@ -113,21 +117,11 @@ public class Abonament {
                 String newStare = "";
                 if (line.contains(ID)) {
                     switch (abAles) {
-                        case "Start 100":
-                            newStare = "ID: " + ID + ", GB: " + Start100.gb + ", MIN: " + Start100.min;
-                            break;
-                        case "Max 140":
-                            newStare = "ID: " + ID + ", GB: " + Max140.gb + ", MIN: " + Max140.min;
-                            break;
-                        case "Max 175":
-                            newStare = "ID: " + ID + ", GB: " + Max175.gb + ", MIN: " + Max175.min;
-                            break;
-                        case "Max 200":
-                            newStare = "ID: " + ID + ", GB: " + Max200.gb + ", MIN: " + Max200.min;
-                            break;
-                        case "Max 290":
-                            newStare = "ID: " + ID + ", GB: " + Max290.gb + ", MIN: " + Max290.min;
-                            break;
+                        case "Start 100" -> newStare = "ID: " + ID + ", GB: " + Start100.gb + ", MIN: " + Start100.min;
+                        case "Max 140"-> newStare = "ID: " + ID + ", GB: " + Max140.gb + ", MIN: " + Max140.min;
+                        case "Max 175" -> newStare = "ID: " + ID + ", GB: " + Max175.gb + ", MIN: " + Max175.min;
+                        case "Max 200" -> newStare = "ID: " + ID + ", GB: " + Max200.gb + ", MIN: " + Max200.min;
+                        case "Max 290" -> newStare = "ID: " + ID + ", GB: " + Max290.gb + ", MIN: " + Max290.min;
                     }
                     FileHelper.replaceLine("StareaContului.txt", line, newStare);
                 }

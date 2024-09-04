@@ -1,7 +1,5 @@
 //In aceasta clasa se afla metodele pentru indeplinirea actiunilor din sectia "Meniul Operatorului"
 import java.io.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.time.LocalDate;

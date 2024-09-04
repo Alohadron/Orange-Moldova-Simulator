@@ -40,9 +40,8 @@ public class utilMenu {
 
     //metoda care ajuta metoda-mama optiuni
     public static void modificareOptiune(String ID, int pret, String Optiunea, String MINGB, int cantitatea) {
-        int x;
+        int x = 2;
         if (Objects.equals(MINGB, "GB")) x = 1;
-        else x = 2;
 
         String preOptiune = MainMenu.foundClientData.get(6);
         String preBalance = MainMenu.foundClientData.get(4).replace("Balanta: ", "");
@@ -87,17 +86,11 @@ public class utilMenu {
             String str = Main.input.nextLine();
 
             switch (str) {
-                case "1": modificareOptiune(ID, 30, "Optiuni: 1 GB lunar", "GB", 1);
-                break;
-                case "2": modificareOptiune(ID, 60, "Optiuni: 5 GB lunar", "GB", 5);
-                break;
-                case "3": modificareOptiune(ID, 100, "Optiuni: 10 GB lunar", "GB", 10);
-                break;
-                case "4": Main.utilizatorMenu(ID);
-                break;
-                default:
-                    System.out.println(color.YELLOW + "\nIncorrect option!" + color.RESET);
-                    Main.utilizatorMenu(ID);
+                case "1" -> modificareOptiune(ID, 30, "Optiuni: 1 GB lunar", "GB", 1);
+                case "2" -> modificareOptiune(ID, 60, "Optiuni: 5 GB lunar", "GB", 5);
+                case "3" -> modificareOptiune(ID, 100, "Optiuni: 10 GB lunar", "GB", 10);
+                case "4" -> Main.utilizatorMenu(ID);
+                default -> System.out.println(color.YELLOW + "\nIncorrect option!" + color.RESET);
             }
         }
 
@@ -113,14 +106,11 @@ public class utilMenu {
             String str = Main.input.nextLine();
 
             switch (str) {
-                case "1": modificareOptiune(ID, 30, "Optiuni: 50 Min lunar", "MIN", 50);
-                break;
-                case "2": modificareOptiune(ID, 60, "Optiuni: 100 Min lunar", "MIN", 100);
-                break;
-                case "3": modificareOptiune(ID, 100, "Optiuni: 200 Min lunar", "MIN", 200);
-                break;
-                case "4": Main.utilizatorMenu(ID);
-                default: System.out.println(color.YELLOW + "\nIncorrect option!" + color.RESET);
+                case "1" -> modificareOptiune(ID, 30, "Optiuni: 50 Min lunar", "MIN", 50);
+                case "2" -> modificareOptiune(ID, 60, "Optiuni: 100 Min lunar", "MIN", 100);
+                case "3" -> modificareOptiune(ID, 100, "Optiuni: 200 Min lunar", "MIN", 200);
+                case "4" -> Main.utilizatorMenu(ID);
+                default -> System.out.println(color.YELLOW + "\nIncorrect option!" + color.RESET);
             }
         }
         MainMenu.foundClientData.clear();
