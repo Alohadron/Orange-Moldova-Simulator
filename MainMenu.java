@@ -2,7 +2,9 @@
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.time.LocalDate;
 
 public class MainMenu {
     static Color color = new Color();
@@ -70,29 +72,21 @@ public class MainMenu {
                     System.out.print(color.GREEN + "Type the change: " + color.RESET);
                     Scanner banana = new Scanner(System.in);
                     String newNume = banana.nextLine();
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-                    try{
-                        switch (parametru){
-                            case "Balanta":
-                                Double num = Double.parseDouble(newNume);
-                                break;
-                            case "Data de Facturare":
-                                int date = Integer.parseInt(newNume);
-                                if (1 >= date || date >= 31) {
-                                    System.out.println(color.RED + "\nThere are 31 days in a month" + color.RESET);
-                                    System.exit(0);
-                                }
-                                break;
-                            case "Data Nasterii":
-                                Date date1 = sdf.parse(newNume);
-                        }
-                    }
-                    catch (ParseException e) {
-                        System.out.println();
-                        System.out.println(color.RED + "Eroare!" + color.RESET);
-                        System.out.println(color.YELLOW + "Ceva nu ai introuds corect" + color.RESET);
-                        System.exit(0);
+                    switch (parametru){
+                        case "Balanta":
+                            Double num = Double.parseDouble(newNume);
+                            break;
+                        case "Data de Facturare":
+                            int date = Integer.parseInt(newNume);
+                            if (1 >= date || date >= 31) {
+                                System.out.println(color.RED + "\nThere are 31 days in a month" + color.RESET);
+                                System.exit(0);
+                            }
+                            break;
+                        case "Data Nasterii":
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                            LocalDate date1 = LocalDate.parse(newNume, formatter);
                     }
 
                     if (foundClientData.contains(preStr)) {

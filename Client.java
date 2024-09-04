@@ -1,4 +1,5 @@
 //In aceasta clasa se creaza clientul
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -57,14 +58,9 @@ public class Client {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a date of birth (dd/mm/yyyy): ");
         String dateStr = sc.next();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        try {
-            Date date = sdf.parse(dateStr);
-            System.out.println("Input date: " + sdf.format(date));
-        } catch (ParseException e) {
-            System.out.println(color.RED + "\nInvalid date format" + color.RESET);
-            System.exit(0);
-        }
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate date1 = LocalDate.parse(dateStr, formatter);
+
         Abonament.alegeAb();
         int rand_ID = rand.nextInt(100000000);
         LocalDate myObj = LocalDate.now();
