@@ -8,4 +8,4 @@ Nume: Wells , Prenume: Faulkner, Data Nasterii: 22/09/1991, ID: 12199949, Balant
 Nume: Ansley , Prenume: Fitzgerald, Data Nasterii: 08/02/2001, ID: 92072283, Balanta: 0.0, Abonament: Max 140, Optiuni: None, Data de Facturare: 2
 Nume: Peyton , Prenume: Hobbs, Data Nasterii: 07/07/1997, ID: 97194360, Balanta: 0.0, Abonament: Max 200, Optiuni: None, Data de Facturare: 13
 Nume: Lacey , Prenume: Kerr, Data Nasterii: 04/11/2001, ID: 96973017, Balanta: 0.0, Abonament: Start 100, Optiuni: None, Data de Facturare: 24
-Nume: Louie , Prenume: Rhodes, Data Nasterii: 16/07/2003, ID: 84982411, Balanta: 0.0, Abonament: Max 290, Optiuni: None, Data de Facturare: 4
+Nume: Louie , Prenume: Rhodes, Data Nasterii: 12/12/1988, ID: 84982411, Balanta: 0.0, Abonament: Max 140, Optiuni: None, Data de Facturare: 14

@@ -41,8 +41,8 @@ public class utilMenu {
     //metoda care ajuta metoda-mama optiuni
     public static void modificareOptiune(String ID, int pret, String Optiunea, String MINGB, int cantitatea) {
         int x;
-        if (Objects.equals(MINGB, "MIN")) x = 2;
-        else x = 1;
+        if (Objects.equals(MINGB, "GB")) x = 1;
+        else x = 2;
 
         String preOptiune = MainMenu.foundClientData.get(6);
         String preBalance = MainMenu.foundClientData.get(4).replace("Balanta: ", "");

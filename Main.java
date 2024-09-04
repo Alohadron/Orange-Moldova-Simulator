@@ -32,21 +32,25 @@ public class Main {
     //meniul operatorului
     public static void operatorMenu() {
             space(15);
-            System.out.println(color.GREEN + "Welcome to Operator's Main Menu" +
-             "\nHere you will be able to freely manipulate your client's data." +
-             "\nBelow are the possibilities you have: " + color.RESET);
-            System.out.println(color.BLUE + "1 \"Create\" a client"
-             + "\n2 \"Remove\" a client"
-             + "\n3 \"Edit\" client's data"
-             + "\n4 \"Choose\" a client"
-             + "\n5 \"Show the list\" of clients" + color.RESET);
+            String text = color.GREEN + """
+             Welcome to Operator's Main Menu
+             Here you will be able to freely manipulate your client's data.
+             Below are the possibilities you have: """ + color.RESET;
+            System.out.println(text);
+            String text1 = color.BLUE + """
+             1 \"Create\" a client
+             2 \"Remove\" a client
+             3 \"Edit\" client's data
+             4 \"Choose\" a client
+             5 \"Show the list\" of clients""" + color.RESET;
+            System.out.println(text1);
             System.out.println("\n0 - Exit program");
             System.out.print(color.GREEN + "\nChoose an option: " + color.RESET);
             String inp = input.nextLine();
+            space(2);
 
             switch (inp) {
                 case "1":
-                    space(2);
                     Client.createClient();
                     break;
                 case "2":
@@ -55,11 +59,9 @@ public class Main {
                     MainMenu.removeClient(removeID);
                     break;
                 case "3":
-                    space(2);
                     MainMenu. editClient();
                     break;
                 case "4":
-                    space(2);
                     System.out.print(color.BLUE + "Type client's ID: " + color.RESET);
                     String findID = input.nextLine();
                     MainMenu.findClient(findID);
@@ -67,47 +69,21 @@ public class Main {
                     MainMenu.foundClientData.clear();
                     break;
                 case "5":
-                    space(2);
                     MainMenu.allClients();
                     break;
             }
-//            if (Objects.equals(inp, "1")) {
-//                space(2);
-//                Client.createClient();
-//            }
-//            if (Objects.equals(inp, "2")) {
-//                space(2);
-//                System.out.print(color.BLUE + "Type client's ID to remove them: " + color.RESET);
-//                String removeID = input.nextLine();
-//                MainMenu.removeClient(removeID);
-//            }
-//            if (Objects.equals(inp, "3")) {
-//                space(2);
-//                MainMenu. editClient();
-//            }
-//            if (Objects.equals(inp, "4")) {
-//                space(2);
-//                System.out.print(color.BLUE + "Type client's ID: " + color.RESET);
-//                String findID = input.nextLine();
-//
-//                MainMenu.findClient(findID);
-//                utilizatorMenu(findID);
-//
-//                MainMenu.foundClientData.clear();
-//            }
-//            if (Objects.equals(inp, "5")) {
-//                space(2);
-//                MainMenu.allClients();
-//            }
         }
+
    //meniul utilizatorului
    public static void utilizatorMenu(String ID) {
        MainMenu.displayClientData(ID);
 
-       System.out.println("Choose an action \n" +
-       "\n133 - Account status" +
-       "\n100 - Orange options" +
-       "\n### - OperatorMenu\n");
+       String text = """
+       Choose an action \n
+       133 - Account status
+       100 - Orange options
+       ### - OperatorMenu\n""";
+       System.out.println(text);
 
        String str = input.nextLine();
        switch (str) {
@@ -116,22 +92,30 @@ public class Main {
                break;
            case "100":
                Main.space(2);
-               System.out.println("Choose:" +
-                       "\n1 Mobile data options" +
-                       "\n2 \"Voce\" options" +
-                       "\n3 Change the subscription\n");
+               String text1 = """
+                       Choose:
+                       1 Mobile data options
+                       2 \"Voce\" options
+                       3 Change the subscription
 
-               System.out.println("0 - Exit program");
-               System.out.println("4 - Back\n");
+                       0 - Exit program
+                       4 - Back\n""";
+               System.out.println(text1);
 
                String opt = input.nextLine();
 
-               if (Objects.equals(opt, "1")) utilMenu.optiuni(ID, "Internet");
-               if (Objects.equals(opt, "2")) utilMenu.optiuni(ID, "Voce");
-               if (Objects.equals(opt, "3")) Abonament.schimbDeAbonament(ID);
-
-               if(Objects.equals(opt, "0")) System.exit(0);
-               if (Objects.equals(opt, "4")) Main.utilizatorMenu(ID);
+               switch (opt) {
+                   case "1": utilMenu.optiuni(ID, "Internet");
+                       break;
+                   case "2": utilMenu.optiuni(ID, "Voce");
+                       break;
+                   case "3": Abonament.schimbDeAbonament(ID);
+                       break;
+                   case "0": System.exit(0);
+                       break;
+                   case "4": Main.utilizatorMenu(ID);
+                       break;
+               }
                break;
            case "###":
                operatorMenu();
@@ -143,36 +127,6 @@ public class Main {
                utilizatorMenu(ID);
        }
 
-//       if (Objects.equals(str, "133")) {
-//           utilMenu.stareaContului(ID);
-//       }
-//       if (Objects.equals(str, "100")) {
-//           Main.space(2);
-//           System.out.println("Choose:" +
-//           "\n1 Mobile data options" +
-//           "\n2 \"Voce\" options" +
-//           "\n3 Change the subscription\n");
-//
-//           System.out.println("0 - Exit program");
-//           System.out.println("4 - Back\n");
-//
-//           String opt = input.nextLine();
-//
-//           if (Objects.equals(opt, "1")) utilMenu.optiuni(ID, "Internet");
-//           if (Objects.equals(opt, "2")) utilMenu.optiuni(ID, "Voce");
-//           if (Objects.equals(opt, "3")) Abonament.schimbDeAbonament(ID);
-//
-//           if(Objects.equals(opt, "0")) System.exit(0);
-//           if (Objects.equals(opt, "4")) Main.utilizatorMenu(ID);
-//
-//       }
-//       if (Objects.equals(str, "###")) operatorMenu();
-//       if (!Objects.equals(str, "133") && !Objects.equals(str, "100") && !Objects.equals(str, "###")) {
-//           space(2);
-//           System.out.println(color.YELLOW + "Incorrect Action!" + color.RESET);
-//           System.out.println();
-//           utilizatorMenu(ID);
-//       }
    }
 
     public static void main(String[] args) {
@@ -181,11 +135,14 @@ public class Main {
         String Menu = color.BLUE + "\"Main Menu\"" + color.RESET;
         Scanner input = new Scanner(System.in);
 
-        System.out.println(color.GREEN + "Hello!\n" +
-                "Welcome to Orange Services.\n" +
-                "First of all try to create a client, yourself for example.\n" +
-                "If you want, you can skip to MainMenu\n" +
-                "\nType " + one + " to continue\n" +
+        String text = color.GREEN + """
+                Hello!
+                Welcome to Orange Services.
+                First of all try to create a client, yourself for example.
+                If you want, you can skip to MainMenu\n""" + color.RESET;
+        System.out.println(text);
+
+        System.out.println(color.GREEN + "\nType " + one + " to continue\n" +
                 "Type " + zero +  " to access " + Menu + "\n"
                 + color.RESET + "\n");
 

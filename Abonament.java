@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 //Abonament
-public class Abonament{
+public class Abonament {
     static Color color = new Color();
     String name;
     int gb;
@@ -16,7 +16,7 @@ public class Abonament{
     static String abAles;//abonamentul ales
     static String abY;//abonamentul introdus de in input
 
-    public Abonament(){
+    public Abonament() {
         this.name = "Unknown";
         this.gb = 0;
         this.min = 0;
@@ -25,7 +25,7 @@ public class Abonament{
         this.pret = 0;
     }
 
-    public Abonament(String name, int gb, int min, String servicii, String OC, int pret){
+    public Abonament(String name, int gb, int min, String servicii, String OC, int pret) {
         this.name = name;
         this.gb = gb;
         this.min = min;
@@ -74,14 +74,16 @@ public class Abonament{
     //metoda care ajuta utilizatorul sa aleaga abonamentul
     public static void alegeAb() {
         System.out.println(color.GREEN + "\nList of subscriptions:" + color.RESET);
-        System.out.println("\nStart 100" +
-        "\nMax 140" +
-        "\nMax 175" +
-        "\nMax 200" +
-        "\nMax 290" +
-        "\nChoose a subscription: ");
+        String text = """
+                \nStart 100
+                Max 140
+                Max 175
+                Max 200
+                Max 290
+                Choose a subscription: """;
+        System.out.println(text);
         abY = Main.input.nextLine();
-        if (!Objects.equals(abY, "Start 100") && !Objects.equals(abY, "Max 140") && !Objects.equals(abY, "Max 175") && !Objects.equals(abY, "Max 200") && !Objects.equals(abY, "Max 290")){
+        if (!Objects.equals(abY, "Start 100") && !Objects.equals(abY, "Max 140") && !Objects.equals(abY, "Max 175") && !Objects.equals(abY, "Max 200") && !Objects.equals(abY, "Max 290")) {
             System.out.println(Main.color.RED + "\nSuch subscription does not exist!" + Main.color.RESET);
             alegeAb();
         }
@@ -108,49 +110,26 @@ public class Abonament{
         try (BufferedReader br = new BufferedReader(new FileReader("StareaContului.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
+                String newStare = "";
                 if (line.contains(ID)) {
-                    String newStare;
                     switch (abAles) {
                         case "Start 100":
                             newStare = "ID: " + ID + ", GB: " + Start100.gb + ", MIN: " + Start100.min;
-                            FileHelper.replaceLine("StareaContului.txt", line, newStare);
                             break;
                         case "Max 140":
                             newStare = "ID: " + ID + ", GB: " + Max140.gb + ", MIN: " + Max140.min;
-                            FileHelper.replaceLine("StareaContului.txt", line, newStare);
                             break;
                         case "Max 175":
                             newStare = "ID: " + ID + ", GB: " + Max175.gb + ", MIN: " + Max175.min;
-                            FileHelper.replaceLine("StareaContului.txt", line, newStare);
                             break;
                         case "Max 200":
                             newStare = "ID: " + ID + ", GB: " + Max200.gb + ", MIN: " + Max200.min;
-                            FileHelper.replaceLine("StareaContului.txt", line, newStare);
                             break;
                         case "Max 290":
                             newStare = "ID: " + ID + ", GB: " + Max290.gb + ", MIN: " + Max290.min;
-                            FileHelper.replaceLine("StareaContului.txt", line, newStare);
+                            break;
                     }
-//                    if (Objects.equals(abAles, "Start 100")) {
-//                        String newStare = "ID: " + ID + ", GB: " + Start100.gb + ", MIN: " + Start100.min;
-//                        FileHelper.replaceLine("StareaContului.txt", line, newStare);
-//                    }
-//                    if (Objects.equals(abAles, "Max 140")) {
-//                        String newStare = "ID: " + ID + ", GB: " + Max140.gb + ", MIN: " + Max140.min;
-//                        FileHelper.replaceLine("StareaContului.txt", line, newStare);
-//                    }
-//                    if (Objects.equals(abAles, "Max 175")) {
-//                        String newStare = "ID: " + ID + ", GB: " + Max175.gb + ", MIN: " + Max175.min;
-//                        FileHelper.replaceLine("StareaContului.txt", line, newStare);
-//                    }
-//                    if (Objects.equals(abAles, "Max 200")) {
-//                        String newStare = "ID: " + ID + ", GB: " + Max200.gb + ", MIN: " + Max200.min;
-//                        FileHelper.replaceLine("StareaContului.txt", line, newStare);
-//                    }
-//                    if (Objects.equals(abAles, "Max 290")) {
-//                        String newStare = "ID: " + ID + ", GB: " + Max290.gb + ", MIN: " + Max290.min;
-//                        FileHelper.replaceLine("StareaContului.txt", line, newStare);
-//                    }
+                    FileHelper.replaceLine("StareaContului.txt", line, newStare);
                 }
             }
         } catch (IOException e) {
@@ -158,14 +137,7 @@ public class Abonament{
             System.out.println("No!");
 
         }
-
-
-
         MainMenu.foundClientData.clear();
-    }
-
-    public static void main(String[] args) {
-        schimbDeAbonament("84755655");
     }
 }
 
